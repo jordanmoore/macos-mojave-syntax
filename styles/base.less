@@ -207,7 +207,6 @@ atom-text-editor {
 
   &.syntax--name.syntax--tag {
     color: @red;
-    text-decoration: underline;
   }
 
   &.syntax--other.syntax--attribute-name {
@@ -293,6 +292,45 @@ atom-text-editor {
   }
 }
 
+atom-text-editor::shadow .bracket-matcher .region {
+  border: none;
+  background-color: @dark;
+  border-radius: 3px;
+  // box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
+  border: 1px solid fadeout(@light-gray, 85%);
+  mix-blend-mode: darken;
+}
+
+.cursor-line {
+  background: fadeout(@very-dark-gray, 50%);
+}
+.line.cursor-line {
+  position: relative;
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid fadeout(@light-gray, 95%);
+  }
+  &:after {
+    top: auto;
+    bottom: 0;
+  }
+}
+
+.highlight.find-result, .highlight.current-result {
+  .region {
+    background: #F8E71C;
+    border: 1px solid #CFC100;
+  }
+}
+.highlight.current-result .region {
+  border-color: #F8E71C;
+  box-shadow: 0 0 0 2px #F8E71C, 0 0 0 1px #CFC100;
+}
 
 // Mini editor
 
